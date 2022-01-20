@@ -30,6 +30,28 @@ class AbstractSwitchableCache:
         pass
 
 
+class SwitchableCacheAggregate(AbstractSwitchableCache):
+
+    """
+    Class for controling multiple switchable caches as one singular entity.
+    """
+
+    def __init__(self, **switchable_caches):
+        self.caches = dict(switchable_caches)
+        super(SwitchableCacheAggregate, self)
+
+    def is_enabled(self):
+        return all(map(lambda cache: cache.is_enabled(), self.caches.values()))
+
+    def enable(self):
+        for cache in self.caches.values():
+            cache.enable()
+
+    def disable(self):
+        for cache in self.caches.values():
+            cache.disable()
+
+
 class PathCache:
 
     """
