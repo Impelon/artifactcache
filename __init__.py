@@ -4,34 +4,12 @@ Package for storing models and data for different libraries locally.
 
 import os
 
-class Cache:
 
-    """
-    Class for caches accessible via a path.
-    """
-
-    def __init__(self, path):
-        self.path = path
-
-    def _get_path(self):
-        return self._path
-
-    def _set_path(self, path):
-        self._path = path
-
-    path = property(lambda obj: obj._get_path(), lambda obj, arg: obj._set_path(arg), doc="The path to this cache.")
-
-class AbstractSwitchableCache(Cache):
+class AbstractSwitchableCache:
 
     """
     Abstract base class for caches that can be enabled and disabled.
     """
-
-    def _set_path(self, path):
-        super(AbstractSwitchableCache, self)._set_path(path)
-        if self.is_enabled():
-            self.disable()
-            self.enable()
 
     def is_enabled(self):
         """
@@ -51,7 +29,35 @@ class AbstractSwitchableCache(Cache):
         """
         pass
 
-class CacheWithEnv(AbstractSwitchableCache):
+
+class PathCache:
+
+    """
+    Class for caches accessible via a path.
+    """
+
+    def __init__(self, path):
+        self.path = path
+
+    def _get_path(self):
+        return self._path
+
+    def _set_path(self, path):
+        self._path = path
+
+    path = property(lambda obj: obj._get_path(), lambda obj, arg: obj._set_path(arg), doc="The path to this cache.")
+
+
+class AbstractSwitchablePathCache(PathCache, AbstractSwitchableCache):
+
+    def _set_path(self, path):
+        super(AbstractSwitchablePathCache, self)._set_path(path)
+        if self.is_enabled():
+            self.disable()
+            self.enable()
+
+
+class CacheWithEnv(AbstractSwitchablePathCache):
 
     """
     Class for caches that are controlled via an environment-variable.
