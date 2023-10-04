@@ -3,7 +3,7 @@
 
 import os.path
 
-from ...__init__ import CacheWithEnv
+from ..._cachetypes import CacheWithEnv
 
 __all__ = ["cache"]
 
