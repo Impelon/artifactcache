@@ -1,8 +1,8 @@
-from ..__init__ import CacheWithEnv, SwitchableCacheAggregate
-
-import pkgutil
 import importlib
 import os.path
+import pkgutil
+
+from ..__init__ import CacheWithEnv, SwitchableCacheAggregate
 
 __all__ = ["internal_cache", "cache"]
 
