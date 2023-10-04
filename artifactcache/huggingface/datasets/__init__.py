@@ -1,6 +1,6 @@
 import os.path
 
-from ...__init__ import CacheWithEnv
+from ...cachetypes import CacheWithEnv
 
 __all__ = ["cache"]
 
