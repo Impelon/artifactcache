@@ -1,40 +1,29 @@
-"""
-Package for storing models and data for different libraries locally.
-"""
+"""Package for storing models and data for different libraries locally."""
 
 import os
 
 
 class AbstractSwitchableCache:
 
-    """
-    Abstract base class for caches that can be enabled and disabled.
-    """
+    """Abstract base class for caches that can be enabled and disabled."""
 
     def is_enabled(self):
-        """
-        Return whether this cache is set to be used.
-        """
+        """Return whether this cache is set to be used."""
         pass
 
     def enable(self):
-        """
-        Set the path so this cache is used.
-        """
+        """Set the path so this cache is used."""
         pass
 
     def disable(self):
-        """
-        Reset the path for the cache used to its original path.
-        """
+        """Reset the path for the cache used to its original path."""
         pass
 
 
 class SwitchableCacheAggregate(AbstractSwitchableCache):
 
-    """
-    Class for controling multiple switchable caches as one singular entity.
-    """
+    """Class for controling multiple switchable caches as one singular
+    entity."""
 
     def __init__(self, **switchable_caches):
         self.caches = dict(switchable_caches)
@@ -54,9 +43,7 @@ class SwitchableCacheAggregate(AbstractSwitchableCache):
 
 class PathCache:
 
-    """
-    Class for caches accessible via a path.
-    """
+    """Class for caches accessible via a path."""
 
     def __init__(self, path):
         self.path = path
@@ -81,9 +68,7 @@ class AbstractSwitchablePathCache(PathCache, AbstractSwitchableCache):
 
 class CacheWithEnv(AbstractSwitchablePathCache):
 
-    """
-    Class for caches that are controlled via an environment-variable.
-    """
+    """Class for caches that are controlled via an environment-variable."""
 
     def __init__(self, path, environment_variable):
         self.environment_variable = environment_variable
