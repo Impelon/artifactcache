@@ -1,12 +1,12 @@
 import importlib
-import os.path
 import pkgutil
 
 from .._cachetypes import CacheWithEnv, SwitchableCacheAggregate
+from .._centralized_location import cache_path_for
 
 __all__ = ["internal_cache", "cache"]
 
-internal_cache = CacheWithEnv(os.path.dirname(os.path.realpath(__file__)), "HF_HOME")
+internal_cache = CacheWithEnv(cache_path_for(__file__), "HF_HOME")
 
 submodule_caches = {}
 for finder, name, is_package in pkgutil.iter_modules(__path__):

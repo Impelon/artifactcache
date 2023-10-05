@@ -1,7 +1,6 @@
-import os.path
-
 from ..._cachetypes import CacheWithEnv
+from ..._centralized_location import cache_path_for
 
 __all__ = ["cache"]
 
-cache = CacheWithEnv(os.path.dirname(os.path.realpath(__file__)), "TOKENIZERS_CACHE")
+cache = CacheWithEnv(cache_path_for(__file__), "TOKENIZERS_CACHE")
