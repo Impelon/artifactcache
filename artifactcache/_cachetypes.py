@@ -17,6 +17,14 @@ class AbstractSwitchableCache:
         """Reset the path for the cache used to its original path."""
         pass
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, *exception_information):
+        self.disable()
+        return False
+
 
 class SwitchableCacheAggregate(AbstractSwitchableCache):
 
