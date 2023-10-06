@@ -46,6 +46,9 @@ class SwitchableCacheAggregate(AbstractSwitchableCache):
         for cache in self.caches.values():
             cache.disable()
 
+    def __repr__(self):
+        return "{}({})".format(type(self).__name__, ", ".join(n + "=" + repr(c) for n, c in self.caches.items()))
+
 
 class AbstractPathCache:
 
@@ -102,3 +105,6 @@ class CacheWithEnv(AbstractSwitchablePathCache):
             del os.environ[self.environment_variable]
         else:
             os.environ[self.environment_variable] = self._original_path
+
+    def __repr__(self):
+        return "{}({!r}, {!r})".format(type(self).__name__, str(self.path), self.environment_variable)
