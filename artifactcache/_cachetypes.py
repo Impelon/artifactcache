@@ -82,13 +82,12 @@ class CacheWithEnv(AbstractSwitchablePathCache):
         super(CacheWithEnv, self).__init__(path)
 
     def is_enabled(self):
-        return self.environment_variable in os.environ and os.environ[self.environment_variable] == self.path
+        return self.environment_variable in os.environ and os.environ[self.environment_variable] == str(self.path)
 
     def enable(self):
         if self.is_enabled():
             return
-        self._original_path = os.environ.get(self.environment_variable, None)
-        os.environ[self.environment_variable] = self.path
+        os.environ[self.environment_variable] = str(self.path)
 
     def disable(self):
         if not self.is_enabled():
