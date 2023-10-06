@@ -47,7 +47,7 @@ class SwitchableCacheAggregate(AbstractSwitchableCache):
             cache.disable()
 
 
-class PathCache:
+class AbstractPathCache:
 
     """Class for caches accessible via a path."""
 
@@ -63,11 +63,17 @@ class PathCache:
     path = property(lambda obj: obj._get_path(), lambda obj, arg: obj._set_path(arg), doc="The path to this cache.")
 
 
-class AbstractSwitchablePathCache(PathCache, AbstractSwitchableCache):
+class AbstractSwitchablePathCache(AbstractPathCache, AbstractSwitchableCache):
 
     def _set_path(self, path):
+        was_enabled = False
+        try:
+            # May fail if path not yet initialized.
+            was_enabled = self.is_enabled()
+        except BaseException:
+            pass
         super(AbstractSwitchablePathCache, self)._set_path(path)
-        if self.is_enabled():
+        if was_enabled:
             self.disable()
             self.enable()
 

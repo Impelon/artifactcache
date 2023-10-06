@@ -47,6 +47,22 @@ class TestCacheWithEnv(unittest.TestCase):
                 self.assertIn(self.envname, os.environ)
                 self.assertEqual(previous_value, os.environ[self.envname])
 
+    def test_switch_path_of_enabled_cache(self):
+        path = __file__
+        previous_value = os.environ.get(self.envname, default=None)
+        cache = CacheWithEnv(path, self.envname)
+        self.assertFalse(cache.is_enabled())
+        cache.enable()
+        self.assertTrue(cache.is_enabled())
+        self.assertEqual(str(path), os.environ[self.envname])
+        path = Path(path).parent / "a" / "new" / "path"
+        cache.path = path
+        self.assertTrue(cache.is_enabled())
+        self.assertEqual(str(path), os.environ[self.envname])
+        cache.disable()
+        self.assertFalse(cache.is_enabled())
+        self.assertEqual(previous_value, os.environ.get(self.envname, default=None))
+
 
 if __name__ == "__main__":
     unittest.main()
