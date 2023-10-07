@@ -1,3 +1,5 @@
+__all__ = "package_version"
+
 package_name = "artifactcache"
 package_version = None
 

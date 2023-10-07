@@ -7,6 +7,8 @@ _PACKAGE_ROOT = Path(__file__).parent.resolve()
 _INSTALLED_AS_MODULE = package_version is not None
 del package_version
 
+__all__ = ["SwitchableCacheAggregate", "CacheWithEnv"]
+
 
 class AbstractSwitchableCache:
 

@@ -5,5 +5,5 @@ This is mainly intended to allow using this library from within a git
 submodule instead of a pip installation.
 """
 
-from .artifactcache import __path__, __version__
+from .artifactcache import __all__, __path__, __version__
 from .artifactcache import *
