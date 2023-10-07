@@ -11,12 +11,12 @@ if package_version is None:
         try:
             import importlib_metadata
         except ImportError:
-            pass
+            pass  # Try to check another way instead.
     if importlib_metadata:
         try:
             package_version = importlib_metadata.version(package_name)
         except importlib_metadata.PackageNotFoundError:
-            pass
+            pass  # Package seems not be installed as a module.
 
 if package_version is None:
     try:
@@ -24,6 +24,6 @@ if package_version is None:
         try:
             package_version = pkg_resources.require(package_name)[0].version
         except pkg_resources.DistributionNotFound:
-            pass
+            pass  # Package seems not be installed as a module.
     except ImportError:
-        pass
+        pass  # Unable to detect version of potentially installed module.

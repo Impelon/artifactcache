@@ -92,6 +92,8 @@ class AbstractSwitchablePathCache(AbstractPathCache, AbstractSwitchableCache):
 pip will not automatically remove any downloaded artifacts when uninstalling artifactcache.
 Consider using an explicit location by setting the cache's `path` attribute or changing the default location using `centralized_cache`.""", RuntimeWarning)
             except ValueError:
+                # This is expected if the path is not within the module installation location.
+                # No warning needed then.
                 pass
         if self.initialize_if_missing:
             pathobj.mkdir(parents=True, exist_ok=True)
@@ -99,10 +101,9 @@ Consider using an explicit location by setting the cache's `path` attribute or c
     def _set_path(self, path):
         was_enabled = False
         try:
-            # May fail if path not yet initialized.
             was_enabled = self.is_enabled()
-        except BaseException:
-            pass
+        except Exception:
+            pass  # May fail if path not yet initialized. Assume disabled.
         super(AbstractSwitchablePathCache, self)._set_path(path)
         if was_enabled:
             self.disable()
