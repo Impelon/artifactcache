@@ -1,6 +1,8 @@
 # `artifactcache`
 A minimalistic python package providing a convenient API to change the default download location for different libraries.
 
+[![CodeQL](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml/badge.svg)](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml)
+
 The library is intended as a way to programatically and conveniently change the default download location for libraries requiring large files (_artifacts_) to be downloaded as part of their normal utilization:
 ```python
 from artifactcache.nltk import cache as NLTK_CACHE
