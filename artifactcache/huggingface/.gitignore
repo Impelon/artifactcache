@@ -1,6 +1,6 @@
 !.gitignore
 !__init__.py
 */**
-!*/.gitignore
-!*/__init__.py
-modules/*
+!datasets/__init__.py
+!tokenizers/__init__.py
+!transformers/__init__.py
