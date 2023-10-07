@@ -3,8 +3,10 @@ name: "CodeQL"
 on:
   push:
     branches: [ "main" ]
+    paths: [ "artifactcache/**" ]
   pull_request:
     branches: [ "main" ]
+    paths: [ "artifactcache/**" ]
   schedule:
     - cron: '34 0 7 */4 *'
   workflow_dispatch:
