@@ -14,11 +14,14 @@ class TestCacheWithEnv(unittest.TestCase):
     def tearDown(self):
         os.environ.pop(self.envname, default=None)
 
+    def create_cache(self, path):
+        return CacheWithEnv(path, self.envname, initialize_if_missing=False)
+
     def test_no_previous_env(self):
         os.environ.pop(self.envname, default=None)
         for path in (__file__, Path(__file__)):
             with self.subTest(path_is_object=isinstance(path, Path)):
-                cache = CacheWithEnv(path, self.envname)
+                cache = self.create_cache(path)
                 self.assertFalse(cache.is_enabled())
                 self.assertNotIn(self.envname, os.environ)
                 cache.enable()
@@ -34,7 +37,7 @@ class TestCacheWithEnv(unittest.TestCase):
         os.environ[self.envname] = previous_value
         for path in (__file__, Path(__file__)):
             with self.subTest(path_is_object=isinstance(path, Path)):
-                cache = CacheWithEnv(path, self.envname)
+                cache = self.create_cache(path)
                 self.assertFalse(cache.is_enabled())
                 self.assertIn(self.envname, os.environ)
                 self.assertEqual(previous_value, os.environ[self.envname])
@@ -50,7 +53,7 @@ class TestCacheWithEnv(unittest.TestCase):
     def test_switch_path_of_enabled_cache(self):
         path = __file__
         previous_value = os.environ.get(self.envname, default=None)
-        cache = CacheWithEnv(path, self.envname)
+        cache = self.create_cache(path)
         self.assertFalse(cache.is_enabled())
         cache.enable()
         self.assertTrue(cache.is_enabled())

@@ -1,4 +1,7 @@
 import os
+from pathlib import Path
+
+_PACKAGE_ROOT = Path(__file__).parent.resolve()
 
 
 class AbstractSwitchableCache:
@@ -68,6 +71,15 @@ class AbstractPathCache:
 
 class AbstractSwitchablePathCache(AbstractPathCache, AbstractSwitchableCache):
 
+    def __init__(self, path, initialize_if_missing=True):
+        self.initialize_if_missing = initialize_if_missing
+        super(AbstractSwitchablePathCache, self).__init__(path)
+
+    def enable(self):
+        pathobj = Path(self.path).resolve()
+        if self.initialize_if_missing:
+            pathobj.mkdir(parents=True, exist_ok=True)
+
     def _set_path(self, path):
         was_enabled = False
         try:
@@ -85,20 +97,20 @@ class CacheWithEnv(AbstractSwitchablePathCache):
 
     """Class for caches that are controlled via an environment-variable."""
 
-    def __init__(self, path, environment_variable):
+    def __init__(self, path, environment_variable, **kwargs):
         self.environment_variable = environment_variable
         self._original_path = os.environ.get(self.environment_variable, None)
-        super(CacheWithEnv, self).__init__(path)
+        super(CacheWithEnv, self).__init__(path, **kwargs)
 
     def is_enabled(self):
         return self.environment_variable in os.environ and os.environ[self.environment_variable] == str(self.path)
 
     def enable(self):
-        if self.is_enabled():
-            return
+        super(CacheWithEnv, self).enable()
         os.environ[self.environment_variable] = str(self.path)
 
     def disable(self):
+        super(CacheWithEnv, self).disable()
         if not self.is_enabled():
             return
         if self._original_path is None:
