@@ -1,7 +1,11 @@
 import os
 from pathlib import Path
 
+from ._version import package_version
+
 _PACKAGE_ROOT = Path(__file__).parent.resolve()
+_INSTALLED_AS_MODULE = package_version is not None
+del package_version
 
 
 class AbstractSwitchableCache:
@@ -77,6 +81,16 @@ class AbstractSwitchablePathCache(AbstractPathCache, AbstractSwitchableCache):
 
     def enable(self):
         pathobj = Path(self.path).resolve()
+        if _INSTALLED_AS_MODULE:
+            try:
+                # is_relative_to is not available in older versions, instead check if an exception is raised.
+                pathobj.relative_to(_PACKAGE_ROOT)
+                warnings.warn("""Cache was enabled with a location inside package installation path.
+
+pip will not automatically remove any downloaded artifacts when uninstalling artifactcache.
+Consider using an explicit location by setting the cache's `path` attribute or changing the default location using `centralized_cache`.""", RuntimeWarning)
+            except ValueError:
+                pass
         if self.initialize_if_missing:
             pathobj.mkdir(parents=True, exist_ok=True)
 
