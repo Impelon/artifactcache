@@ -14,31 +14,31 @@ repos:
   - id: check-docstring-first
 
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.10.0
+  rev: v2.14.0
   hooks:
   - id: pretty-format-toml
     args: ["--autofix", "--no-sort"]
 
 - repo: https://github.com/abravalheri/validate-pyproject
-  rev: v0.14
+  rev: v0.22
   hooks:
     - id: validate-pyproject
 
-- repo: https://github.com/pre-commit/mirrors-autopep8
-  rev: v2.0.0
+- repo: https://github.com/hhatto/autopep8
+  rev: v2.3.1
   hooks:
   - id: autopep8
     args: ["-i", "-aaa", "--max-line-length", "120"]
 
 - repo: https://github.com/pycqa/isort
-  rev: 5.10.1
+  rev: 5.13.2
   hooks:
   - id: isort
     name: sort python imports
     args: ["--multi-line", "3"]
 
 - repo: https://github.com/PyCQA/docformatter
-  rev: v1.5.0
+  rev: v1.7.5
   hooks:
   - id: docformatter
     name: format python docstrings
@@ -46,9 +46,11 @@ repos:
 
 - repo: local
   hooks:
-  - id: python-unittest
-    name: run python tests
-    entry: python -m unittest
+  - id: python-coverage
+    name: check test coverage
+    entry: bash -c "coverage run -m unittest && coverage report -m --skip-covered"
     language: python
+    additional_dependencies: ["coverage"]
     types: [python]
+    verbose: true
     pass_filenames: false
