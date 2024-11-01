@@ -33,7 +33,7 @@ jobs:
         mkdir pages/badges
     - name: Collect coverage results
       run: |
-        coverage run tests.py
+        coverage run --branch tests.py
         coverage html -d pages/coverage --skip-empty
         coverage xml -o coverage.xml
     - name: Create badge
