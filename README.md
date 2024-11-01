@@ -3,7 +3,7 @@ A minimalistic python package providing a convenient API to change the default d
 
 [![CodeQL](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml/badge.svg)](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml)
 
-The library is intended as a way to programatically and conveniently change the default download location for libraries requiring large files (_artifacts_) to be downloaded as part of their normal utilization:
+The library is intended as a way to programmatically and conveniently change the default download location for libraries requiring large files (_artifacts_) to be downloaded as part of their normal utilization:
 ```python
 from artifactcache.nltk import cache as NLTK_CACHE
 NLTK_CACHE.path = "/tmp/custom-location" # specify a Linux temporary directory new location for NLTK downloads
@@ -35,7 +35,7 @@ git submodule add https://github.com/Impelon/artifactcache.git
 ```
 
 Using/Importing the library should be the same. The ability to do this is mostly mentioned out of "historical" reasons, as this project originates as a [part of one of my other projects](https://github.com/Impelon/log-summarization/tree/6c72f1f3b139b63fdfaa386f262ff5086da37a52/code/util/localcache).
-One possible advantange of using the library it this way:
+One possible advantage of using the library it this way:
 You can store library models and other artifacts within your local repo without needing a [virtual environment](https://docs.python.org/3/library/venv.html) - and without the need to specify a central default location.
 Any downloaded artifacts will be automatically ignored. ([See below](#git-submodule-behaviour).)
 
@@ -151,7 +151,7 @@ folder-with-artifacts
 
 When used as a submodule the example from above can be simplified.
 This is because caches will have a default location relative to their source files.
-This means that you do not need to specify a centralized location for all caches, the files will be downloaded to the allready existing directory-structure created by the library itsself.
+This means that you do not need to specify a centralized location for all caches, the files will be downloaded to the already existing directory-structure created by the library itself.
 
 ```python3
 # When used as a git submodule there is no need to specify a separate centralized location.
