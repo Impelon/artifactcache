@@ -48,7 +48,7 @@ repos:
   hooks:
   - id: python-coverage
     name: check test coverage
-    entry: bash -c "coverage run -m unittest && coverage report -m --skip-covered"
+    entry: bash -c "coverage run tests.py && coverage report -m --skip-covered"
     language: python
     additional_dependencies: ["coverage"]
     types: [python]
