@@ -34,21 +34,29 @@ jobs:
     - name: Collect coverage results
       run: |
         coverage run -m unittest
-        coverage html -d pages/coverage
+        coverage html -d pages/coverage --skip-empty
         coverage xml -o coverage.xml
     - name: Create badge
       run: |
         genbadge coverage -i coverage.xml -o pages/badges/coverage.svg
+    - name: Remove .gitignore to correctly deploy coverage report
+      run: |
+        rm .gitignore
+        rm pages/coverage/.gitignore
     - name: Publish coverage report to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: pages/coverage
         target-folder: coverage
+        commit-message: Generate new coverage report from @ ${{ github.repository }}@${{ github.sha }}
+        force: false
         branch: gh-pages
     - name: Publish coverage badge to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         folder: pages/badges
         target-folder: badges
+        commit-message: Generate new coverage badge from @ ${{ github.repository }}@${{ github.sha }}
+        force: false
         clean: false
         branch: gh-pages
