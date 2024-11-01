@@ -11,7 +11,7 @@
 <header>
     <div class="content">
         <h1>Coverage report:
-            <span class="pc_cov">94%</span>
+            <span class="pc_cov">92%</span>
         </h1>
         <aside id="help_panel_wrapper">
             <input id="help_panel_state" type="checkbox">
@@ -27,6 +27,8 @@
                         <kbd>s</kbd>
                         <kbd>m</kbd>
                         <kbd>x</kbd>
+                        <kbd>b</kbd>
+                        <kbd>p</kbd>
                         <kbd>c</kbd>
                         &nbsp; change column sorting
                     </p>
@@ -55,7 +57,7 @@
         </h2>
         <p class="text">
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.1">coverage.py v7.6.1</a>,
-            created at 2024-11-01 23:24 +0000
+            created at 2024-11-01 23:31 +0000
         </p>
     </div>
 </header>
@@ -68,6 +70,8 @@
                 <th id="statements" aria-sort="none" data-default-sort-order="descending" data-shortcut="s">statements<span class="arrows"></span></th>
                 <th id="missing" aria-sort="none" data-default-sort-order="descending" data-shortcut="m">missing<span class="arrows"></span></th>
                 <th id="excluded" aria-sort="none" data-default-sort-order="descending" data-shortcut="x">excluded<span class="arrows"></span></th>
+                <th id="branches" aria-sort="none" data-default-sort-order="descending" data-shortcut="b">branches<span class="arrows"></span></th>
+                <th id="partial" aria-sort="none" data-default-sort-order="descending" data-shortcut="p">partial<span class="arrows"></span></th>
                 <th id="coverage" class="right" aria-sort="none" data-shortcut="c">coverage<span class="arrows"></span></th>
             </tr>
         </thead>
@@ -78,13 +82,17 @@
                 <td>7</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="7 7">100%</td>
+                <td>2</td>
+                <td>1</td>
+                <td class="right" data-ratio="8 9">89%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t17">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t17"><data value='is_enabled'>AbstractSwitchableCache.is_enabled</data></a></td>
                 <td>1</td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="0 1">0%</td>
             </tr>
@@ -94,12 +102,16 @@
                 <td>1</td>
                 <td>1</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="0 1">0%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t25">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t25"><data value='disable'>AbstractSwitchableCache.disable</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -110,12 +122,16 @@
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t33">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t33"><data value='exit__'>AbstractSwitchableCache.__exit__</data></a></td>
                 <td>2</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
@@ -126,6 +142,8 @@
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
             </tr>
             <tr class="region">
@@ -134,7 +152,9 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="1 1">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="3 3">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t50">artifactcache/_cachetypes.py</a></td>
@@ -142,7 +162,9 @@
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="2 2">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t54">artifactcache/_cachetypes.py</a></td>
@@ -150,7 +172,9 @@
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="2 2">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t58">artifactcache/_cachetypes.py</a></td>
@@ -158,12 +182,16 @@
                 <td>1</td>
                 <td>1</td>
                 <td>0</td>
-                <td class="right" data-ratio="0 1">0%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 3">0%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t66">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t66"><data value='init__'>AbstractPathCache.__init__</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -174,12 +202,16 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t72">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t72"><data value='set_path'>AbstractPathCache._set_path</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -190,6 +222,8 @@
                 <td>2</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
             </tr>
             <tr class="region">
@@ -198,7 +232,9 @@
                 <td>9</td>
                 <td>5</td>
                 <td>0</td>
-                <td class="right" data-ratio="4 9">44%</td>
+                <td>4</td>
+                <td>1</td>
+                <td class="right" data-ratio="7 13">54%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t101">artifactcache/_cachetypes.py</a></td>
@@ -206,12 +242,16 @@
                 <td>9</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="9 9">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="11 11">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t117">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t117"><data value='init__'>CacheWithEnv.__init__</data></a></td>
                 <td>3</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="3 3">100%</td>
@@ -222,12 +262,16 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t125">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t125"><data value='enable'>CacheWithEnv.enable</data></a></td>
                 <td>2</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
@@ -238,13 +282,17 @@
                 <td>6</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="6 6">100%</td>
+                <td>4</td>
+                <td>0</td>
+                <td class="right" data-ratio="10 10">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t138">artifactcache/_cachetypes.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__cachetypes_py.html#t138"><data value='repr__'>CacheWithEnv.__repr__</data></a></td>
                 <td>1</td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="0 1">0%</td>
             </tr>
@@ -254,12 +302,16 @@
                 <td>34</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="34 34">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="36 36">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__centralized_location_py.html#t13">artifactcache/_centralized_location.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__centralized_location_py.html#t13"><data value='centralized_cache'>centralized_cache</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -270,12 +322,16 @@
                 <td>4</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="4 4">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_c363def257d8722d__centralized_location_py.html">artifactcache/_centralized_location.py</a></td>
                 <td class="name left"><a href="z_c363def257d8722d__centralized_location_py.html"><data value=''><span class='no-noun'>(no function)</span></data></a></td>
                 <td>9</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="9 9">100%</td>
@@ -286,12 +342,16 @@
                 <td>26</td>
                 <td>7</td>
                 <td>0</td>
-                <td class="right" data-ratio="19 26">73%</td>
+                <td>6</td>
+                <td>3</td>
+                <td class="right" data-ratio="22 32">69%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="z_f7491cca31dc2bce___init___py.html">artifactcache/nltk/__init__.py</a></td>
                 <td class="name left"><a href="z_f7491cca31dc2bce___init___py.html"><data value=''><span class='no-noun'>(no function)</span></data></a></td>
                 <td>4</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="4 4">100%</td>
@@ -302,12 +362,16 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t17">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t17"><data value='setUp'>TestCacheWithEnv.setUp</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -318,12 +382,16 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t23">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t23"><data value='create_cache'>TestCacheWithEnv.create_cache</data></a></td>
                 <td>1</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
@@ -334,7 +402,9 @@
                 <td>13</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="13 13">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="15 15">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t41">tests.py</a></td>
@@ -342,12 +412,16 @@
                 <td>16</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="16 16">100%</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="18 18">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t59">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t59"><data value='test_switch_path_of_enabled_cache'>TestCacheWithEnv.test_switch_path_of_enabled_cache</data></a></td>
                 <td>14</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="14 14">100%</td>
@@ -358,12 +432,16 @@
                 <td>4</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="4 4">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t85">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t85"><data value='test_nested_aggreagate'>TestSwitchableCacheAggregate.test_nested_aggreagate</data></a></td>
                 <td>29</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="29 29">100%</td>
@@ -374,12 +452,16 @@
                 <td>31</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="31 31">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t152">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t152"><data value='setUp'>TestCentralizedCache.setUp</data></a></td>
                 <td>2</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="2 2">100%</td>
@@ -390,12 +472,16 @@
                 <td>1</td>
                 <td>0</td>
                 <td>0</td>
+                <td>0</td>
+                <td>0</td>
                 <td class="right" data-ratio="1 1">100%</td>
             </tr>
             <tr class="region">
                 <td class="name left"><a href="tests_py.html#t159">tests.py</a></td>
                 <td class="name left"><a href="tests_py.html#t159"><data value='test'>TestCentralizedCache.test</data></a></td>
                 <td>9</td>
+                <td>0</td>
+                <td>0</td>
                 <td>0</td>
                 <td>0</td>
                 <td class="right" data-ratio="9 9">100%</td>
@@ -406,7 +492,9 @@
                 <td>25</td>
                 <td>0</td>
                 <td>0</td>
-                <td class="right" data-ratio="25 25">100%</td>
+                <td>2</td>
+                <td>1</td>
+                <td class="right" data-ratio="26 27">96%</td>
             </tr>
         </tbody>
         <tfoot>
@@ -416,7 +504,9 @@
                 <td>284</td>
                 <td>16</td>
                 <td>0</td>
-                <td class="right" data-ratio="268 284">94%</td>
+                <td>34</td>
+                <td>6</td>
+                <td class="right" data-ratio="294 318">92%</td>
             </tr>
         </tfoot>
     </table>
@@ -428,7 +518,7 @@
     <div class="content">
         <p>
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.1">coverage.py v7.6.1</a>,
-            created at 2024-11-01 23:24 +0000
+            created at 2024-11-01 23:31 +0000
         </p>
     </div>
     <aside class="hidden">
