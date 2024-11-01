@@ -2,6 +2,7 @@
 A minimalistic python package providing a convenient API to change the default download location for different libraries.
 
 [![CodeQL](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml/badge.svg)](https://github.com/Impelon/artifactcache/actions/workflows/codeql.yml)
+[![Test Coverage](https://github.com/Impelon/artifactcache/raw/gh-pages/badges/coverage.svg?raw=true)](https://impelon.github.io/artifactcache/coverage/)
 
 The library is intended as a way to programmatically and conveniently change the default download location for libraries requiring large files (_artifacts_) to be downloaded as part of their normal utilization:
 ```python
